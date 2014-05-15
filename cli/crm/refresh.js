@@ -9,12 +9,12 @@
  * @public
  */
 exports.refresh = function () {
-    var util = require('../util');
+    var util = require('../../lib/util');
     var edpPro = require('edp-project');
     var proInfo = edpPro.getInfo();
     var moduleConf = edpPro.module.getConfigFile(proInfo);
     var moduleInfo = util.readJson(moduleConf);
-    var entris = require('../module').getEntries(proInfo.dir);
+    var entris = require('../../lib/module').getEntries(proInfo.dir);
 
     var combine = {};
     entris.forEach(function (item) {
@@ -41,13 +41,6 @@ exports.refresh = function () {
  * @type {Object}
  */
 var cli = {};
-
-/**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'refresh';
 
 /**
  * 命令描述信息

@@ -14,13 +14,6 @@
 var cli = {};
 
 /**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'build';
-
-/**
  * 命令描述信息
  *
  * @type {string}
@@ -69,7 +62,7 @@ var PLATFORM = require('os').platform();
  * @param {Object} projectInfo 项目信息
  */
 exports.createConfigFile = function (projectInfo) {
-    var content = require('../scaffold').getTpl(
+    var content = require('../../lib/scaffold').getTpl(
             DEFAULT_BUILD_CONF.replace(/\.js$/, '')
         );
 
@@ -210,7 +203,7 @@ cli.main = function ( args, opts ) {
     // 2. 如果设置了force参数，强制删除当前存在的目录
     if ( fs.existsSync( outputDir ) ) {
         if ( opts.force ) {
-            require( '../util' ).rmdir( outputDir );
+            require( '../../lib/util' ).rmdir( outputDir );
         }
         else {
             console.error( outputDir + ' directory already exists!' );
@@ -245,7 +238,7 @@ cli.main = function ( args, opts ) {
     });
     
     // 将保留文件拷贝到输出目录
-    var util = require('../util');
+    var util = require('../../lib/util');
     var proDir = require('edp-project').getInfo().dir;
     var items = [];
     retention.forEach(function (item) {
@@ -260,7 +253,7 @@ cli.main = function ( args, opts ) {
         });
     });
     
-    var customBuilder = require('../build');
+    var customBuilder = require('../../lib/build');
     var moduleEntries = conf.moduleEntries 
         ? conf.moduleEntries.split(',')
         : ['vm', 'html'];

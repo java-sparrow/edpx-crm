@@ -28,13 +28,6 @@ function resolvePath(path){
 var cli = {};
 
 /**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'doc';
-
-/**
  * 命令描述信息
  *
  * @type {string}

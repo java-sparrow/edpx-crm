@@ -25,7 +25,7 @@ function initProject(metaData) {
     project.dir.init(projectInfo);
     require('../crm').setMetaData(metaData);
     require('./build').createConfigFile(projectInfo);
-    require('../ws').createConfigFile(projectInfo);
+    require('../../lib/ws').createConfigFile(projectInfo);
     require('../crm').createJSDocConfFile(projectInfo);
 }
 
@@ -89,8 +89,8 @@ function initDir() {
  * @inner
  */
 function initDependence(callback) {
-    var scaffold = require('../scaffold');
-    var dep = require('../dep');
+    var scaffold = require('../../lib/scaffold');
+    var dep = require('../../lib/dep');
 
     function addDep(i, callback) {
         if (i >= DEPENDENCS.length) {
@@ -118,7 +118,7 @@ function initDependence(callback) {
  */
 function initPackage(callback) {
     var loader = require('edp-package');
-    var scaffold = require('../scaffold');
+    var scaffold = require('../../lib/scaffold');
 
     function addPackage(i, callback) {
         if (i >= PACKAGE.length) {
@@ -143,7 +143,7 @@ function initPackage(callback) {
  * @inner
  */
 function initFile(metaData) {
-    var tpl = require('../scaffold').getTpl('utils.macro');
+    var tpl = require('../../lib/scaffold').getTpl('utils.macro');
     var info = {
         project: metaData,
         scripts: [],
@@ -171,7 +171,7 @@ function initFile(metaData) {
         }
     }
 
-    var deps = require('../dep').get();
+    var deps = require('../../lib/dep').get();
     DEPENDENCS.forEach(function (item) {
         item = deps[item].last;
         addDep(item);
@@ -187,13 +187,6 @@ function initFile(metaData) {
  * @type {Object}
  */
 var cli = {};
-
-/**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'init';
 
 /**
  * 命令描述信息
@@ -212,7 +205,7 @@ cli.usage = 'edp crm init';
 /**
  * 模块命令行运行入口
  */
-cli.main = function () {
+cli.main = function (args, opts) {
     getMetaData(function (metaData) {
         initProject(metaData);
         initDir();

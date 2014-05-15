@@ -37,7 +37,7 @@ function getMetaDataFile() {
 exports.getMetaData = function () {
     var metaFile = getMetaDataFile();
 
-    return require('./util').readJson(metaFile);
+    return require('../lib/util').readJson(metaFile);
 };
 
 /**
@@ -46,7 +46,7 @@ exports.getMetaData = function () {
  * @param {Object} data
  */
 exports.setMetaData = function (data) {
-    var util = require('./util');
+    var util = require('../lib/util');
     var metaData = exports.getMetaData();
 
     metaData = util.extend(metaData, data);
@@ -62,7 +62,7 @@ exports.setMetaData = function (data) {
  * @param {Object} projectInfo 项目信息
  */
 exports.createJSDocConfFile = function (projectInfo) {
-    var tpl = require('./scaffold').getTpl(
+    var tpl = require('../lib/scaffold').getTpl(
             DEFAULT_JSDOC_FILE.replace(/\.conf$/, '')
         );
 
@@ -83,13 +83,6 @@ exports.createJSDocConfFile = function (projectInfo) {
 var cli = {};
 
 /**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'crm';
-
-/**
  * 命令描述信息
  *
  * @type {string}
@@ -100,9 +93,10 @@ cli.description = 'CRM项目管理';
  * 模块命令行运行入口
  *
  */
-cli.main = function () {
+cli.main = function (args, opts) {
     var path = require('path');
-    var info = require('./util').readJson(path.resolve(__dirname, '../package.json'));
+    var info = require('../lib/util').readJson(path.resolve(__dirname, '../package.json'));
+    
     console.log('Hello RigelFE');
     console.log('------');
     console.log(info.name);
