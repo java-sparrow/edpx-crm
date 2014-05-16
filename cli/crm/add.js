@@ -46,10 +46,10 @@ creator.vm = function (file, options) {
     data.project = {
         name: crmMeta.name
     };
-    data = require('../util').extend(data, options);
+    data = require('../../lib/util').extend(data, options);
 
     require('edp-codegen').text(
-        require('../scaffold').getTpl('vm'), 
+        require('../../lib/scaffold').getTpl('vm'), 
         data, 
         file
     );
@@ -69,10 +69,10 @@ creator.html = function (file, options) {
     data.project = {
         name: crmMeta.name
     };
-    data = require('../util').extend(data, options);
+    data = require('../../lib/util').extend(data, options);
 
     require('edp-codegen').text(
-        require('../scaffold').getTpl('html'), 
+        require('../../lib/scaffold').getTpl('html'), 
         data, 
         file
     );
@@ -90,10 +90,10 @@ creator.js = function (file, options) {
         author: config.get('user.name'),
         email: config.get('user.email')
     };
-    var tpl = require('../scaffold').getTpl('js');
+    var tpl = require('../../lib/scaffold').getTpl('js');
 
     options = options || {}; 
-    info = require('../util').extend(info, options);
+    info = require('../../lib/util').extend(info, options);
 
     require('edp-codegen').text(tpl, info, file);
 };
@@ -105,13 +105,6 @@ creator.js = function (file, options) {
  * @type {Object}
  */
 var cli = {};
-
-/**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'add';
 
 /**
  * 命令描述信息

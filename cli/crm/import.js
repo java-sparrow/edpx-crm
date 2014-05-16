@@ -12,13 +12,6 @@
 var cli = {};
 
 /**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'import';
-
-/**
  * 命令描述信息
  *
  * @type {string}
@@ -38,7 +31,7 @@ cli.usage = 'edp crm import <file>';
 cli.main = function (args) {
     var src = args[0];
 
-    require('../dep').add(src);
+    require('../../lib/dep').add(src);
 };
 
 /**

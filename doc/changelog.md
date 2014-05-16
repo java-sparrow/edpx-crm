@@ -1,5 +1,12 @@
 # 版本变更
 
+## 0.4.0
+
+* 更新目录结构（与`edp1.0.1`插件机制保持一致）
+* 升级相关依赖的`edp`版本
+* 删除未引用的`processor.js`文件
+* bug fix（`lib/mock.js`文件）
+
 ## 0.3.3
 
 * 添加本地模拟使用的`ejson`模块，支持`ejson.toJson()`，`ejson.toSimpleJson`

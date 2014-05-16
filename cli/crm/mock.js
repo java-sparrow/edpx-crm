@@ -84,13 +84,6 @@ maker['4'] = function (rl, url, callback) {
 var cli = {};
 
 /**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'mock';
-
-/**
  * 命令描述信息
  *
  * @type {string}
@@ -139,7 +132,7 @@ cli.main = function (args) {
                     rl, url, 
                     function (info, fixUrl) {
                         rl.close();
-                        require('../mock').add(fixUrl || url, info);
+                        require('../../lib/mock').add(fixUrl || url, info);
                     }
                 );
             }

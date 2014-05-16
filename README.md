@@ -52,10 +52,10 @@
 
 ## 版本变更
 
-最新版本：__0.3.3__
+最新版本：__0.4.0__
 
-* 添加本地模拟使用的`ejson`模块，支持`ejson.toJson()`，`ejson.toSimpleJson`
-* 所有`vm`模版变量统一封装到`$data`中
+* 更新目录结构（与`edp1.0.1`插件机制保持一致）
+* 升级相关依赖的`edp`版本
 * bug fix
 
 [了解更多](doc/changelog.md)

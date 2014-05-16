@@ -12,13 +12,6 @@
 var cli = {};
 
 /**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'start';
-
-/**
  * 命令描述信息
  *
  * @type {string}
@@ -59,7 +52,7 @@ cli.main = function (args, options) {
         root = require('edp-project').getInfo().dir;
     }
 
-    require('../ws').start({
+    require('../../lib/ws').start({
         port: options.port,
         documentRoot: root
     });

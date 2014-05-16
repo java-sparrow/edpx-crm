@@ -12,13 +12,6 @@
 var cli = {};
 
 /**
- * 命令名称
- *
- * @type {string}
- */
-cli.command = 'create';
-
-/**
  * 命令描述信息
  *
  * @type {string}
@@ -84,7 +77,7 @@ cli.main = function (args, options) {
     creator.js(jsFile);
 
     // 创建模拟数据
-    require('../mock').add(
+    require('../../lib/mock').add(
         moduleId + '.action',
         {
             type: 'vm'
