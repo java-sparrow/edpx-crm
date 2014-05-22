@@ -15,8 +15,8 @@
 
 ## 0.3.2
 
-* 添加[create](create.md)命令，创建业务模块一步到位
-* [combine](build.md)配置支持手动管理，urlArgs配置分散到各个入口页面
+* 添加[create](../cli/crm/create.md)命令，创建业务模块一步到位
+* [combine](../cli/crm/build.md)配置支持手动管理，urlArgs配置分散到各个入口页面
 
 ## 0.3.0
 

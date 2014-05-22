@@ -36,13 +36,13 @@
 
 ## 命令
 
-* [init](doc/init.md)
-* [create](doc/create.md)
-* [add](doc/add.md)
-* [mock](doc/mock.md)
-* [start](doc/start.md)
-* [build](doc/build.md)
-* [doc](doc/doc.md)
+* [init](cli/crm/init.md)
+* [create](cli/crm/create.md)
+* [add](cli/crm/add.md)
+* [mock](cli/crm/mock.md)
+* [start](cli/crm/start.md)
+* [build](cli/crm/build.md)
+* [doc](cli/crm/doc.md)
 
 ## 测试
 
