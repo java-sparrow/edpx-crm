@@ -1,13 +1,13 @@
 /**
- * @file JSON模拟数据({{{url}}})
- * @author {{{author}}}({{{email}}})
+ * @file JSON模拟数据(${url|raw})
+ * @author ${author|raw}(${email|raw})
  */
 
 // 返回数据 E-JSON
 var res = {status: 0};
 
 module.exports = {
-    type: '{{{data.type}}}',
+    type: '${data.type|raw}',
 
     // 返回结果
     // string形式

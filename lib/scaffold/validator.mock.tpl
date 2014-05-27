@@ -1,6 +1,6 @@
 /**
- * @file 验证数据模拟({{{url}}})
- * @author {{{author}}}({{{email}}})
+ * @file 验证数据模拟(${url|raw})
+ * @author ${author|raw}(${email|raw})
  */
 
 /*

@@ -3,35 +3,35 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>{{{project.name}}}</title>
+    <title>${project.name|raw}</title>
     #includeStatic()
-    {{#loaderConfig}}
+    <!-- if: ${loaderConfig} -->
     <script>
     require.config({
-        baseUrl: '$!{webRoot}/{{{loaderBaseUrl}}}',
-        paths: { {{#forEach loaderPaths}}
-            {{{key}}}: '{{{value}}}'{{^last}},{{/last}}
-        {{/forEach}} },
-        packages: [ {{#loaderPackages}}
+        baseUrl: '$!{webRoot}/${loaderBaseUrl|raw}',
+        paths: { <!-- for: ${loaderPaths} as ${path} -->
+            '${key|raw}': '${value|raw}'<!-- if: !${path.last} -->,<!-- /if -->
+        <!-- /for --> },
+        packages: [ <!-- for: ${loaderPackages} as ${pkg} -->
             {
-                name: '{{{name}}}',
-                location: '{{{location}}}',
-                main: '{{{main}}}'
-            }{{^last}},{{/last}}
-        {{/loaderPackages}}]
+                name: '${pkg.name|raw}',
+                location: '${pkg.location|raw}',
+                main: '${pkg.main|raw}'
+            }<!-- if: !${pkg.last} -->,<!-- /if -->
+        <!-- /for -->]
     });
     </script>
-    {{/loaderConfig}}
+    <!-- /if -->
 </head>
 <body>
     #footer()
 <script>
-    {{#entryCode}}
-    require(['{{{moduleId}}}'], function (main) {
+    <!-- if: ${entryCode} -->
+    require(['${entryCode.moduleId|raw}'], function (main) {
         // 模块入口
         main.enter();
     });
-    {{/entryCode}}
+    <!-- /if -->
 </script>
 </body>
 </html>

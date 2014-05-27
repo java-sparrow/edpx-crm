@@ -1,10 +1,10 @@
 /**
- * @file 反向代理({{{url}}})
- * @author {{{author}}}({{{email}}})
+ * @file 反向代理(${url|raw})
+ * @author ${author|raw}(${email|raw})
  */
 
 module.exports = {
-    type: '{{{data.type}}}',
+    type: '${data.type|raw}',
 
     // 反向代理的请求地址
     // 默认为空，与源请求相同

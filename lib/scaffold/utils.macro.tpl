@@ -8,14 +8,14 @@
  * 引入静态资源
  *#
 #macro (includeStatic)
-{{#each styles}}
-<link rel="stylesheet" href="$!{webRoot}/{{{this}}}" />
-{{/each}}
-{{#each scripts}}
-<script src="$!{webRoot}/{{{this}}}"></script>
-{{/each}}
+<!-- for: ${styles} as ${style} -->
+<link rel="stylesheet" href="$!{webRoot}/${style|raw}" />
+<!-- /for -->
+<!-- for: ${scripts} as ${script} -->
+<script src="$!{webRoot}/${script|raw}"></script>
+<!-- /for -->
 <script>
-var {{{project.code}}} = {
+var ${project.code|raw} = {
     root: '$!{webRoot}'
 };
 </script>
